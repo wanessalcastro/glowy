@@ -1,9 +1,9 @@
 # ---------- Etapa 1: compilar ----------
 FROM maven:3.9-eclipse-temurin-17 AS build
 WORKDIR /app
-COPY pom.xml .
+COPY glowy/pom.xml .
 RUN mvn -q -B dependency:go-offline
-COPY src ./src
+COPY glowy/src ./src
 RUN mvn -q -B clean package -DskipTests
 
 # ---------- Etapa 2: executar ----------
